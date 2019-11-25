@@ -1,7 +1,10 @@
 use std::thread;
 use std::time::Duration;
 
-struct Cacher<T> {
+struct Cacher<T>
+where
+    T: Fn(u32) -> u32,
+{
     calculation: T,
     value: Option<u32>,
 }
